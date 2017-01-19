@@ -7,6 +7,9 @@
  * LICENSE.txt file in the root directory of this source tree.
  * Shamelessly inspired by https://github.com/davidgilbertson/know-it-all
  */
+
+import {ArrayIncludesPolyfill} from 'rkgttr-polyfills';
+
 const attributeExceptions = [
   `role`,
   `dataset`,

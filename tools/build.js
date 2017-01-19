@@ -22,16 +22,12 @@
 
  // Compile source code into a distributable format with Babel
  ['es', 'cjs', 'umd'].forEach((format, index) => {
-   let preset = index ? pkg.babel.presets.map(x => (x === 'latest' ? ['latest', { es2015: { modules: false } }] : x)) : 'stage-0';
    promise = promise.then(() => rollup.rollup({
      entry: 'src/index.js',
      external: Object.keys(pkg.dependencies),
-     plugins: [babel(Object.assign(pkg.babel, {
-       babelrc: false,
-       exclude: 'node_modules/**',
-       runtimeHelpers: true,
-       presets: preset,
-     }))],
+     plugins: index > 0 ? [babel({
+       exclude: 'node_modules/**'
+     })] : [],
    }).then(bundle => bundle.write({
      dest: `dist/${format === 'cjs' ? 'index' : `index.${format}`}.js`,
      format,
@@ -43,10 +39,11 @@
  // Copy package.json and LICENSE.txt
  promise = promise.then(() => {
    delete pkg.private;
-   delete pkg.devDependencies;
+   delete pkg.devDependencies;  
    delete pkg.scripts;
    delete pkg.eslintConfig;
    delete pkg.babel;
+   fs.writeFileSync('dist/index.es.js', fs.readFileSync('./src/index.js', 'utf-8'), 'utf-8');
    fs.writeFileSync('dist/package.json', JSON.stringify(pkg, null, '  '), 'utf-8');
    fs.writeFileSync('dist/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8');
    fs.writeFileSync('dist/README.md', fs.readFileSync('README.md', 'utf-8'), 'utf-8');

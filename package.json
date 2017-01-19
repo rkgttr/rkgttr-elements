@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "rkgttr-elements",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HTML Components builder.",
   "repository": "rkgttr/rkgttr-elements",
   "author": "Erik Guittiere",
@@ -28,7 +28,8 @@
     "extends": "airbnb-base"
   },
   "dependencies": {
-    "babel-runtime": "^6.11.6"
+    "babel-runtime": "^6.11.6",
+    "rkgttr-polyfills": "^0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
