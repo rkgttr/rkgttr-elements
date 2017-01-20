@@ -8,7 +8,7 @@
  * Shamelessly inspired by https://github.com/davidgilbertson/know-it-all
  */
 
-import {ArrayIncludesPolyfill} from 'rkgttr-arrayincludespolyfill';
+import 'rkgttr-arrayincludespolyfill';
 
 const attributeExceptions = [
   `role`,
