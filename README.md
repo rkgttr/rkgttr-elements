@@ -26,7 +26,7 @@ Build a component this way:
 ```js
 import Publisher from 'rkgttr-publisher';
 import uuid from 'rkgttr-uuid';
-import { div, img, h2, p, a } from 'Elements';
+import { div, img, h2, p, a } from 'rkgttr-elements';
 
 const MediaObject = (initialData) => {
   let el = null,
