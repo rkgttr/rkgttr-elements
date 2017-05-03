@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "rkgttr-elements",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "HTML Components builder.",
   "repository": "rkgttr/rkgttr-elements",
   "author": "Erik Guittiere",
